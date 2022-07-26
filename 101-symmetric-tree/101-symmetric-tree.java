@@ -19,8 +19,12 @@ class Solution {
         return check(root.left,root.right);
     }
     private boolean check(TreeNode left, TreeNode right){
-        if(left == null || right == null){
-            return left == right;
+        if (left == null && right == null)
+        {
+            return true;
+        }
+        else if(left == null || right == null){
+            return false;
         }
         if(left.val != right.val){
             return false;
