@@ -1,26 +1,15 @@
 class Solution {
     public int change(int amount, int[] coins) {
-        HashMap<String, Integer> hm = new HashMap<String, Integer>();
-        return helper(amount, coins, 0, hm);
-    }
-
-    private int helper(int amount, int[] coins, int index, HashMap<String, Integer> hm) {
-        if(amount == 0) return 1;
+        int[] dp = new int[amount + 1];
+        // for each coin iteration : dp[i] = number of coins required to make i with coins [0...coin]
+        dp[0] = 1;
         
-        if(amount < 0 || index == coins.length)  return 0;
-        
-        String key = amount + ":" + index;
-        if(hm.containsKey(key))
-            return hm.get(key);
-        
-        int result = 0;
-        for(int i = index; i < coins.length; i++) {
-            if(amount >= coins[i]) {
-                result += helper(amount - coins[i], coins, i, hm);
+        for(int coin : coins) {
+            for(int i = coin; i <= amount; i++) {
+                dp[i] += dp[i-coin];
             }
         }
-
-        hm.put(key, result); 
-        return result;
+        
+        return dp[amount];
     }
 }
