@@ -1,26 +1,27 @@
 class Solution {
     public int change(int amount, int[] coins) {
-        Map<String,Integer> map = new HashMap<>();
-        return helper(coins, amount, 0, map);
+        Map<String, Integer> map = new HashMap<>();
+        return change(amount, 0, map, coins);
     }
-    public int helper(int[] coins, int amount, int lastcoin, Map<String,Integer> map){     
-        
-        if(amount == 0){
+    
+    public int change(int amount, int start, Map<String, Integer> map, int[] coins) {
+        if (amount < 0)
+            return 0;
+
+        if (amount == 0) 
             return 1;
-        }
-        
-        String key = amount + "and" + lastcoin;
-        if(map.containsKey(key)){
+    
+        String key = amount + "," + start;
+        if (map.containsKey(key)) {
             return map.get(key);
         }
         
-        int count = 0;
-        for(int i = lastcoin; i < coins.length; i++){
-            if(amount - coins[i] >= 0)
-            count += helper(coins, amount - coins[i], i, map);
+        int ways = 0;
+        for (int i = start; i < coins.length; ++ i) {
+            ways += change(amount - coins[i], i, map, coins);
         }
         
-        map.put(key,count);
-        return count;
+        map.put(key, ways);
+        return ways;
     }
 }
