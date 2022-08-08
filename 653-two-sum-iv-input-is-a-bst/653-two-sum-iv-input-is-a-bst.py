@@ -14,11 +14,21 @@ class Solution:
             inorder(root.right,res)
             return res
         res=inorder(root,[])
-        if len(res)==1:
-            return False
-        for i in range(len(res)):
-            for j in range(i+1,len(res)):
-                if res[i]+res[j]==k:
-                    return True
+        d={}
+    
+        for i,v in enumerate(res):
+            temp=k-v
+            if temp in d:
+                return True
+            d[v]=i
         return False
+            
+        
+        # if len(res)==1:
+        #     return False
+        # for i in range(len(res)):
+        #     for j in range(i+1,len(res)):
+        #         if res[i]+res[j]==k:
+        #             return True
+        # return False
             
