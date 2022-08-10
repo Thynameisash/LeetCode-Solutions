@@ -4,10 +4,11 @@ class Solution:
         if nlen==0: return 0
         if nlen==1: return nums[0]
         else:
+            dp=[0]*2
             prev1,prev2,temp=0,0,0
             for i in nums:
-                temp=prev1;
-                prev1=max(prev2+i,prev1)
-                prev2=temp
-            return prev1
+                temp=dp[0];
+                dp[0]=max(dp[1]+i,dp[0])
+                dp[1]=temp
+            return dp[0]
         
