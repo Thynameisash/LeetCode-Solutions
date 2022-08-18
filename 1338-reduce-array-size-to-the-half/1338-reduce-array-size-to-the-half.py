@@ -6,10 +6,10 @@ class Solution:
         max=0
         res=[]
         for k,v in freq.items():
-            if freq[k]>=len(nums)>>1:
+            if freq[k]>=len(nums)/2:
                 res.append(k)
                 break;
-            elif freq[k]+max>=len(nums)>>1:
+            elif freq[k]+max>=len(nums)/2:
                 res.append(k)
                 break;
             else:    
