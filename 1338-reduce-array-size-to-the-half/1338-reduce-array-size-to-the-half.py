@@ -1,9 +1,9 @@
 class Solution:
     def minSetSize(self, nums: List[int]) -> int:
-        count=Counter(nums)
-        freq=dict(count.most_common())
-        # print(freq)
-        max=0 # 4
+
+        freq=dict(Counter(nums).most_common())
+
+        max=0
         res=[]
         for k,v in freq.items():
             if freq[k]>=len(nums)>>1:
@@ -15,5 +15,5 @@ class Solution:
             else:    
                 max+=freq[k]
                 res.append(k)
-        print(res)
+
         return len(res)
