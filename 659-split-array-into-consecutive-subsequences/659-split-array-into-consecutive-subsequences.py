@@ -15,7 +15,7 @@ class Solution:
             j=i
             count=0
             while j < end+1 and freq[j] >= max_freq:
-                max_freq = max(freq[j], max_freq)
+                if freq[j]>max_freq: max_freq=freq[j]
                 freq[j]-=1
                 j+=1
                 count+=1
