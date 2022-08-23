@@ -9,5 +9,4 @@ class Solution:
         while head!=None:
             num=num+str(head.val)
             head=head.next
-        print(num)
         return num==num[::-1]
