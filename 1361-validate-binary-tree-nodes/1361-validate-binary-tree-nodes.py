@@ -11,8 +11,7 @@ class Solution:
         queue = [root]
         
         while queue:
-            ele = queue.pop()
-            print(ele)
+            ele = queue.pop(0)
             if ele in visited:
                 return False
             
