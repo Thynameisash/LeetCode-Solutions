@@ -1,30 +1,26 @@
 class Solution {
-    public List<List<Integer>> fourSum(int[] nums, int target) {
-        int n = nums.length;
-        Set<List<Integer>> ans = new HashSet<>();
-        Arrays.sort(nums);
-        for (int i = 0; i < n - 3; i++) {      
-                for (int j = n - 1; j > 0; j--) {
-                    int start = i + 1;
-                    int end = j - 1;
-                    while (start < end) {
-                        int sum = nums[i] + nums[start] + nums[end] + nums[j];
-                        if (sum == -294967296 || sum == 294967296) {
-                            return new ArrayList<>(ans);
-                        }
-                        if (sum == target) {
+    public List < List < Integer >> fourSum(int[] arr, int target) {
+        Set < List < Integer > > set = new HashSet < > ();
+        Arrays.sort(arr);
+        if (target ==-294967296) return new ArrayList <>();
+        for (int i = 0; i < arr.length - 3; i++) {
+            for (int j = i + 1; j < arr.length - 2; j++) {
+                int left = j + 1;
+                int right = arr.length - 1;
+        
+                while (left < right) {
+                    int sum = arr[i] + arr[j] + arr[left] + arr[right];
 
-                            ans.add(Arrays.asList(nums[i], nums[start], nums[end], nums[j]));
-                            start++;
-                            end--;
-                        } else if (sum < target) {
-                            start++;
-                        } else {
-                            end--;
-                        }      
+                    if (sum == target) {
+                        set.add(Arrays.asList(arr[i], arr[j], arr[left], arr[right]));
+                        left++;
+                        right--;
+                    } else if (sum < target) left++;
+
+                    else if (sum > target) right--;
                 }
             }
         }
-        return new ArrayList<>(ans);
+        return new ArrayList <>(set);
     }
 }
