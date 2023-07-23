@@ -6,9 +6,8 @@ class Solution:
             if nums[i]>l:
                 sl=l
                 l=nums[i]
-                print(l,sl)
+                
             elif nums[i]>sl:
                 sl=nums[i]
-                print(l,sl)
-        print(l,sl)
+
         return (l-1)*(sl-1)
