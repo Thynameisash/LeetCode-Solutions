@@ -8,8 +8,7 @@ class Solution {
                 if (j == 0 || j == i) {
                     row.add(1);
                 } else {
-                    int val = grow.get(i - 1).get(j - 1) + grow.get(i - 1).get(j);
-                    row.add(val);
+                    row.add(grow.get(i - 1).get(j - 1) + grow.get(i - 1).get(j));
                 }
             }
             grow.add(row);
