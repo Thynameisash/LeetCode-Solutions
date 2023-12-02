@@ -17,7 +17,6 @@ class Solution {
             }
             sum += (len == word.length()) ? len : 0;
         }
-
         return sum;
     }
 }
