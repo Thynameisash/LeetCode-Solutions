@@ -12,7 +12,6 @@ class Solution {
                 count = 1; 
             }
         }
-
         return Math.max(global, count);
     }
 }
