@@ -6,9 +6,8 @@ class Solution {
             s.append(temp.val);
             temp=temp.next;
         }
-        String originalString = s.toString();  // Convert StringBuilder to String
-        String reversedString = s.reverse().toString();  // Reverse and convert to String
-        System.out.print(reversedString);
+        String originalString = s.toString();  
+        String reversedString = s.reverse().toString();
         return originalString.equals(reversedString);
     }
 }
