@@ -1,5 +1,5 @@
 class Solution {
-    int dp[]=new int[46];
+    int dp[]=new int[31];
     public int fib(int n) {
         if(dp[n]!=0) return dp[n];
         if(n==0 || n==1) return n;
