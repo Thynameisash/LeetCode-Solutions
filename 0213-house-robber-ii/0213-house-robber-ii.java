@@ -17,7 +17,6 @@ class Solution {
         
         oddSum=0;
         evenSum=0;
-        System.out.println(leftsum);
         for (int i = nums.length-1; i > 0; i--) {
             if (i % 2 == 0) {
                 evenSum += nums[i];
@@ -29,7 +28,6 @@ class Solution {
         }
 
         int rightsum= Math.max(oddSum, evenSum);
-        System.out.println(rightsum);
 
         return Math.max(leftsum,rightsum);
     }
