@@ -1,18 +1,25 @@
 class Solution {
     public boolean checkValidString(String s) {
-        int leftCount = 0, rightCount = 0;
-        
-        for (char c : s.toCharArray()) {
-            leftCount += c == '(' ? 1 : -1;
-            rightCount += c == ')' ? -1 : 1;
-            
-            if (rightCount < 0) {
-                break;
-            }
-            
-            leftCount = Math.max(leftCount, 0);
-        }
 
-        return leftCount == 0;
+        int p1=0,p2=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='('){
+                p1++;
+                p2++;
+            } else if(s.charAt(i)==')'){
+                p1--;
+                p2--;
+            } else if(s.charAt(i)=='*'){
+                p1++;
+                p2--;
+            }
+            if(p1<0){
+                return false;
+            }
+            if(p2<0){
+                p2 = 0;
+            }
+        }
+        return p2==0;
     }
 }
