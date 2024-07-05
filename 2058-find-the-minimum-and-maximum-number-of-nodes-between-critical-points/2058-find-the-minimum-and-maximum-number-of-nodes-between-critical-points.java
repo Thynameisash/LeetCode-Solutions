@@ -33,7 +33,6 @@ class Solution {
             count++;
         }
 
-        System.out.println("All crit values index: " + critVals);
         if(critVals.size()<2) return new int[] {-1,-1};
         else{
             int min= Integer.MAX_VALUE;
@@ -41,32 +40,6 @@ class Solution {
                 min = Math.min(min, critVals.get(i) - critVals.get(i - 1));
             }
             int max = critVals.get(critVals.size() - 1) - critVals.get(0);
-            // Collections.sort(critVals);
-            // int[] valArr = new int[critVals.size()];
-            // for (int i = 0; i < valArr.length; i++) {
-            //      valArr[i] = critVals.get(i);
-            // }
-            // int len = valArr.length;
-            // for(int i=0;i<len-1;i++){
-            //     if (valArr[i]<min){
-            //         min=valArr[i];
-            //     }
-            // }
-            // for(int i=0;i<len-1;i++){
-            //     if (valArr[i]>min && valArr[i]<min2){
-            //         min2=valArr[i];
-            //     }
-            // }
-            // for(int i=0;i<len-1;i++){
-            //     if (valArr[i]>max){
-            //         max=valArr[i];
-            //     }
-            // }
-            // for(int i=0;i<len-1;i++){
-            //     if (valArr[i]<max && valArr[i]>max2){
-            //         max2=valArr[i];
-            //     }
-            // }
             return new int[]{min,max};
             }
         }
