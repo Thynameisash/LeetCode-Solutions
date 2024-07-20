@@ -28,7 +28,10 @@ class Solution {
             return false;
         }
         
-        
+        if (l.val != r.val) {
+            return false;
+        }
+          
         return l.val==r.val && helper(l.left,r.right) && helper(l.right,r.left);
     }
 }
