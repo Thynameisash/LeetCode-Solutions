@@ -10,10 +10,6 @@ class Solution {
         
         int maxLength = Math.max(binaryN.length(), binaryK.length());
 
-        while (binaryN.length() < maxLength) { 
-            binaryN = "0" + binaryN;
-        }
-
         while (binaryK.length() < maxLength) {
             binaryK = "0" + binaryK;
         }
