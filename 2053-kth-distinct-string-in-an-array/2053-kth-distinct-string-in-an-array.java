@@ -6,7 +6,6 @@ class Solution {
                 if(arr[a].equals(arr[i])){
                     ans.remove(arr[i]);
                     ans.remove(arr[a]);
-                    break;
                 }
             }
         }
