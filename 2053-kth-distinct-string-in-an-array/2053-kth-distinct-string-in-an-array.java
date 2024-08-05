@@ -6,10 +6,14 @@ class Solution {
                 if(arr[a].equals(arr[i])){
                     ans.remove(arr[i]);
                     ans.remove(arr[a]);
+                    break;
                 }
             }
         }
-        return (ans.isEmpty() || ans.size() < k - 1) ? "" : ans.get(k - 1);
-
+        if (ans.isEmpty() || ans.size()<k-1) {
+            return "";
+        } else {
+            return ans.get(k-1);
+        }
     }
 }
